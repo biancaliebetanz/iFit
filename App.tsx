@@ -10,6 +10,7 @@ const Stack = createNativeStackNavigator();
 import { Catalogo } from './Telas/Catalogo';
 import { Cadastro } from './Telas/Cadastro';
 import { Login } from './Telas/Login';
+import { DetalhesProduto } from './Telas/DetalhesProduto';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Stack.Screen name="Cadastro" component={Cadastro} />
       <Stack.Screen name="Catalogo" component={Catalogo} />
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="DetalhesProduto" component={DetalhesProduto} />
     </Stack.Navigator>
   </NavigationContainer>
   );

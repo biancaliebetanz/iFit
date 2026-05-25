@@ -5,11 +5,15 @@ const screenWidth = Dimensions.get('window').width;
 
 import { Categorias } from '../Dados'
 
-export const Produto = ({ item }) => {
+export const Produto = ({ item, navigation }) => {
   const categoriaInfo = Categorias.find(cat => cat.id === item.idCategoria);
 
   return (
-    <Pressable onPress={() => alert(item.descricao === "" ? "Produto sem descrição" : item.descricao)}>
+    <Pressable onPress={() => //alert(item.descricao === "" ? "Produto sem descrição" : item.descricao)}>
+      navigation.navigate('DetalhesProduto', {
+        produto:item
+      })
+    }>
       <View style={styles.containerProduto}>
         <Text 
           style={[

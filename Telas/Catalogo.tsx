@@ -29,7 +29,13 @@ export const Catalogo = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={Produtos}
-        renderItem={({ item }) => <Produto item={item} />}
+        //renderItem={({ item }) => <Produto item={item} />}
+        renderItem={({item}) =>(
+          <Produto
+            item={item}
+            navigation={navigation}
+          />
+        )}
         keyExtractor={item => item.id.toString()}
         ListHeaderComponent={Header}
         numColumns={2} 

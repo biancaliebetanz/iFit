@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Pressable, Alert } from 'react-native';
 
 export const DetalhesProduto = ({ route }) => {
   const { produto } = route.params;
@@ -13,10 +13,17 @@ export const DetalhesProduto = ({ route }) => {
       <Text style={styles.preco}>
         R$ {produto.preco ?? "Preço a definir"}
       </Text>
-
-      <Text style={styles.descricao}>
+      
+      <View style={styles.descricaoContainer}>
+        <Text style={styles.descricao}>
         {produto.descricao}
       </Text>
+      </View>
+      
+      <Pressable style={styles.botaoCarrinho}
+      onPress={() => Alert.alert('Adicionado ao carrinho com sucesso!')}>
+        <Text style={styles.botaoTexto}> Adicionar ao carrinho</Text>
+      </Pressable>
     </View>
   );
 };
@@ -35,6 +42,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginTop: 15,
+    
   },
   preco: {
     fontSize: 20,
@@ -43,6 +51,24 @@ const styles = StyleSheet.create({
   },
   descricao: {
     fontSize: 16,
-    marginTop: 15,
+
   },
+  descricaoContainer:{
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 12,
+    marginTop: 16,
+  },
+  botaoCarrinho:{
+    backgroundColor: '#4CAF50',
+    padding: '16',
+    borderRadius: 12,
+    alignItems: 'center',
+    marginTop: 24,
+  },
+  botaoTexto:{
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 16,
+  }
 });

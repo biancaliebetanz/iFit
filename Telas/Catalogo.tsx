@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, View, FlatList, TextInput } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, FlatList, TextInput, Image } from 'react-native';
 import { Categorias, Produtos } from '../Dados.js';
 import { Categoria } from '../components/Categoria.js';
 import { Produto } from '../components/Produto.js';
@@ -22,7 +22,7 @@ export const Catalogo = ({ navigation }) => {
       {/* Header */}
       <View style={styles.headerGap}>
         <View style={styles.containerTitle}>
-          <Text style={styles.title}>iFit</Text>
+          <Image style={styles.title} source={require('../assets/images/logo.png')}/>
           <Text style={styles.subtitle}>Encontre a opção ideal para você</Text>
         </View>
         <FlatList
@@ -70,49 +70,52 @@ export const Catalogo = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-    },
-    headerGap: {
-        gap: 20,
-        marginBottom: 20,
-        paddingTop: 10
-    },
-    containerTitle: {
-        gap: 5,
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: '800',
-        textAlign: 'center',
-    },
-    subtitle: {
-        fontSize: 18,
-        textAlign: 'center',
-    },
-    horizontalListContent: {
-        gap: 12,
-    },
-    searchContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      paddingHorizontal: 20,
-      marginBottom: 10,
-    },
-    searchWrapper: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      backgroundColor: '#f2f2f2',
-      borderRadius: 12,
-      borderWidth: 1,
-      borderColor: '#ddd',
-      paddingHorizontal: 12,
-    },
-    searchInput: {
+  container: {
       flex: 1,
-      height: 50,
-      fontSize: 16,
-      marginLeft: 8,
-    },
+      position: 'relative',
+      backgroundColor: '#fff',
+  },
+  headerGap: {
+      gap: 20,
+      marginBottom: 20,
+      paddingTop: 10,
+  },
+  containerTitle: {
+      alignItems: 'center',
+      gap: 5,
+      marginBottom: 4,
+  },
+  title: {
+      width: 108,
+      height: 52,
+      resizeMode: 'contain',
+  },
+  subtitle: {
+      fontSize: 18,
+      textAlign: 'center',
+  },
+  horizontalListContent: {
+      gap: 12,
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    marginBottom: 10,
+  },
+  searchWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f2f2f2',
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    paddingHorizontal: 12,
+  },
+  searchInput: {
+    flex: 1,
+    height: 50,
+    fontSize: 16,
+    marginLeft: 8,
+  },
 });

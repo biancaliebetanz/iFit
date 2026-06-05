@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { MaskedTextInput } from 'react-native-mask-text';
-import {Text, View, StyleSheet, TextInput, Pressable,  } from 'react-native';
+import {Text, View, StyleSheet, TextInput, Pressable, Image } from 'react-native';
 
 export const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -10,8 +10,7 @@ export const Login = ({ navigation }) => {
   return (
       <View style={styles.container}>
           <View style={styles.containerTitle}>
-            <Text style={styles.title}>iFit</Text>
-            <Text style={styles.subtitle}>Crie seu cadastro</Text>
+            <Image style={styles.title} source={require('../assets/images/logo.png')}/>
           </View>
           <View style={{ display: "flex", flexDirection: "column", gap: 12}}> 
             <View>
@@ -57,14 +56,15 @@ const styles = StyleSheet.create({
     padding: "10%",
     gap: 18
   },
-  title: {
-    fontSize: 20,
-    fontWeight: '800',
-    textAlign: 'center',
+  containerTitle: {
+    position: 'absolute',
+    top: 76,
+    left: 108,
   },
-  subtitle: {
-    fontSize: 16,
-    textAlign: 'center',
+  title: {
+    width: 172,
+    height: 82,
+    resizeMode: 'contain',
   },
   label: {
     fontSize: 14,

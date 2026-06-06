@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, Pressable, Alert } from 'react-native';
+import { View, Text, Image, StyleSheet, Pressable, Alert , FlatList } from 'react-native';
+import { ProdutosQueNaoSaoFavoritos } from '../Dados.js';
+import { Recomendacao } from '../components/Recomendacao.js';
 
-export const DetalhesProduto = ({ route }) => {
+export const DetalhesProduto = ({ route, navigation }) => {
   const { produto } = route.params;
 
   return (
@@ -24,6 +26,18 @@ export const DetalhesProduto = ({ route }) => {
       onPress={() => Alert.alert('Adicionado ao carrinho com sucesso!')}>
         <Text style={styles.botaoTexto}> Adicionar ao carrinho</Text>
       </Pressable>
+
+      <FlatList
+        data={ProdutosQueNaoSaoFavoritos.filter(
+          recomendacao => recomendacao.idCategoria == produto.idCategoria
+        )}
+        renderItem={({ item }) => 
+          <Recomendacao 
+            item={item} 
+            navigation={navigation} 
+          />
+        }
+      />
     </View>
   );
 };
@@ -60,7 +74,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   botaoCarrinho:{
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#000000',
     padding: '16',
     borderRadius: 12,
     alignItems: 'center',

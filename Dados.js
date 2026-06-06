@@ -56,7 +56,9 @@ export const Produtos = [
     "imagem": require('./assets/images/produto-sem-gluten.jpeg'),
     "dataHoje" : "2026-04-18",
     "idCategoria": 1009220,
-    "preco": 29.9
+    "preco": 29.9,
+    "ingredientes": "",
+    "maisPedido": true
   },
   {
     "id": 1010914,
@@ -65,7 +67,9 @@ export const Produtos = [
     "dataModificacao": "2014-03-05T13:17:50-0500",
     "imagem": require('./assets/images/produto-diabeticos.jpeg'),
     "idCategoria": 1010914,
-    "preco": 29.9
+    "preco": 29.9,
+    "ingredientes": "",
+    "maisPedido": true
   },
   {
     "id": 1017295,
@@ -74,7 +78,9 @@ export const Produtos = [
     "dataModificacao": "2013-09-18T11:15:29-0400",
     "imagem": require('./assets/images/produto-sem-lactose.jpeg'),
     "idCategoria": 1017295,
-    "preco": 29.9
+    "preco": 29.9,
+    "ingredientes": "",
+    "maisPedido": true
   },
   {
     "id": 1017575,
@@ -83,22 +89,10 @@ export const Produtos = [
     "dataModificacao": "2014-11-17T17:46:57-0500",
     "imagem": require('./assets/images/produto-dieta-balanceada.jpeg'),
     "idCategoria": 1017575,
-    "preco": 29.9
+    "preco": 29.9,
+    "ingredientes": "",
+    "maisPedido": true
   },
-  {
-    "id": 1017566,
-    "nome": "Almoço Infantil",
-    "descricao": "Opções saudáveis ricas em proteínas. Personalize uma refeição especialmente para o seu filho!",
-    "dataModificacao": "2014-11-17T17:46:57-0500",
-    "imagem": require('./assets/images/alimentacao-infantiljpeg.jpeg'),
-    "idCategoria": 1017566
-  }
-];
-
-// gente, me perdoem, eu criei essa lista temporariamente
-// prometo de dedinho que vou arrumar depois
-
-export const ProdutosQueNaoSaoFavoritos = [
   {
     "id": 1,
     "nome": "Panqueca de aveia e banana",
@@ -107,7 +101,8 @@ export const ProdutosQueNaoSaoFavoritos = [
     "imagem": require('./assets/images/Café da Tarde Sem Lactose - Panquecas com banana e menta.png'),
     "idCategoria": 1017295,
     "preco": 15.99,
-    "ingredientes": "banana, ovo, farinha de aveia, canela em pó e azeite"
+    "ingredientes": "banana, ovo, farinha de aveia, canela em pó e azeite",
+    "maisPedido": false
   },
   {
     "id": 2,
@@ -117,7 +112,8 @@ export const ProdutosQueNaoSaoFavoritos = [
     "imagem": require('./assets/images/Sem Lactose (Avocado Toast) - Torrada com abacate e ovo poché.png'),
     "idCategoria": 1017295,
     "preco": 29.99,
-    "ingredientes": "pão de fermentação natural (sourdough), abacate, limão, sal marinho, azeite de oliva, pimenta-do-reino, ovo, vinagre branco, sementes de abóbora e girassol torradas, folhas de rúcula"
+    "ingredientes": "pão de fermentação natural (sourdough), abacate, limão, sal marinho, azeite de oliva, pimenta-do-reino, ovo, vinagre branco, sementes de abóbora e girassol torradas, folhas de rúcula",
+    "maisPedido": false
   },
   {
     "id": 3,
@@ -127,7 +123,8 @@ export const ProdutosQueNaoSaoFavoritos = [
     "imagem": require('./assets/images/Dieta Balanceada (Salmão) - Prato de salmão grelhado e purê.png'),
     "idCategoria": 1017575,
     "preco": 41.99,
-    "ingredientes": "salmão, mandioquinha, aspargos, azeite de oliva, sal marinho, pimenta-do-reino, limão"
+    "ingredientes": "salmão, mandioquinha, aspargos, azeite de oliva, sal marinho, pimenta-do-reino, limão",
+    "maisPedido": false
   },
   {
     "id": 4,
@@ -137,7 +134,8 @@ export const ProdutosQueNaoSaoFavoritos = [
     "imagem": require('./assets/images/Dieta Balanceada (Frango Xadrez) - Prato colorido de stir-fry com arroz.png'),
     "idCategoria": 1017575,
     "preco": 24.99,
-    "ingredientes": "peito de frango, arroz integral, brócolis, cenoura, pimentão vermelho, shoyu light, gengibre, alho, óleo de gergelim e cebolinha"
+    "ingredientes": "peito de frango, arroz integral, brócolis, cenoura, pimentão vermelho, shoyu light, gengibre, alho, óleo de gergelim e cebolinha",
+    "maisPedido": false
   },
   {
     "id": 5,
@@ -147,7 +145,8 @@ export const ProdutosQueNaoSaoFavoritos = [
     "imagem": require('./assets/images/Macarrão divertido com temática Hulk.png'),
     "idCategoria": 1017566,
     "preco": 24.99,
-    "ingredientes": "espaguete, folha de espinafre, folha de manjericão, azeite de oliva, creme de castanhas, sal, carne de patinho moída, aveia, cebola, salsa e cebolinha"
+    "ingredientes": "espaguete, folha de espinafre, folha de manjericão, azeite de oliva, creme de castanhas, sal, carne de patinho moída, aveia, cebola, salsa e cebolinha",
+    "maisPedido": false
   },
   {
     "id": 6,
@@ -157,7 +156,8 @@ export const ProdutosQueNaoSaoFavoritos = [
     "imagem": require('./assets/images/Café da Tarde Sem Lactose - Panquecas com banana e menta.png'),
     "idCategoria": 1009220,
     "preco": 15.99,
-    "ingredientes": "banana, ovo, farinha de aveia, canela em pó e azeite"
+    "ingredientes": "banana, ovo, farinha de aveia, canela em pó e azeite",
+    "maisPedido": false
   },
   {
     "id": 7,
@@ -167,7 +167,8 @@ export const ProdutosQueNaoSaoFavoritos = [
     "imagem": require('./assets/images/Lanche da Tarde Proteico - Pão rústico com ervas e tomate.png'),
     "idCategoria": 1009220,
     "preco": 25.99,
-    "ingredientes": "ovos, azeite, tomilho, frango cozido, fermento em pó, tomate-cereja, alecrim"
+    "ingredientes": "ovos, azeite, tomilho, frango cozido, fermento em pó, tomate-cereja, alecrim",
+    "maisPedido": false
   },
   {
     "id": 8,
@@ -177,7 +178,8 @@ export const ProdutosQueNaoSaoFavoritos = [
     "imagem": require('./assets/images/Almoço - Lasanha de legumes estilo mediterrâneo.png'),
     "idCategoria": 1010914,
     "preco": 24.99,
-    "ingredientes": "berinjela, abobrinha, tomate, cebola, queijo, manjericão, azeite"
+    "ingredientes": "berinjela, abobrinha, tomate, cebola, queijo, manjericão, azeite",
+    "maisPedido": false
   },
   {
     "id": 9,
@@ -187,7 +189,8 @@ export const ProdutosQueNaoSaoFavoritos = [
     "imagem": require('./assets/images/Almoço Vegano - Gnocchi com molho de tomate e ervas.png'),
     "idCategoria": 1010914,
     "preco": 22.99,
-    "ingredientes": "Massa: batata, farinha de arroz, sal e salsinha. Molho: tomate, cebola e alho"
+    "ingredientes": "Massa: batata, farinha de arroz, sal e salsinha. Molho: tomate, cebola e alho",
+    "maisPedido": false
   },
   {
     "id": 10,
@@ -197,7 +200,8 @@ export const ProdutosQueNaoSaoFavoritos = [
     "imagem": require('./assets/images/Infantil (Pão Colorido) - Pão espiral colorido e vegetais frescos.png'),
     "idCategoria": 1017566,
     "preco": 26.99,
-    "ingredientes": "espinafre, cenoura, beterraba, cebola, azeite e farinha de trigo"
+    "ingredientes": "espinafre, cenoura, beterraba, cebola, azeite e farinha de trigo",
+    "maisPedido": false
   },
   {
     "id": 11,
@@ -207,6 +211,7 @@ export const ProdutosQueNaoSaoFavoritos = [
     "imagem": require('./assets/images/ChatGPT Image 5 de jun. de 2026, 20_43_20.png'),
     "idCategoria": 1010914,
     "preco": 6.99,
-    "ingredientes": "banana, cacau em pó e fermento"
+    "ingredientes": "banana, cacau em pó e fermento",
+    "maisPedido": false
   }
 ]

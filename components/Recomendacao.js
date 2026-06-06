@@ -10,7 +10,6 @@ export const Recomendacao = ({ item, navigation }) => {
       onPress={() => navigation.navigate('DetalhesProduto', { produto: item })}
       style={({ pressed }) => [styles.container, pressed && styles.pressed]}
     >
-
       <View style={[styles.imagemMoldura, { backgroundColor: corCategoria }]}>
         <Image
           style={styles.imagem}
@@ -18,14 +17,12 @@ export const Recomendacao = ({ item, navigation }) => {
           resizeMode="contain"
         />
       </View>
-
       <View style={styles.infoContainer}>
         <Text style={styles.nome} numberOfLines={2}>{item.nome}</Text>
         {item.descricao ? (
           <Text style={styles.descricao} numberOfLines={3}>{item.descricao}</Text>
         ) : null}
       </View>
-
       <View style={styles.precoContainer}>
         <Text style={styles.preco}>
           {item.preco != null
@@ -42,20 +39,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
     backgroundColor: '#FFFFFF',
-    width: 355,
-    height: 101,
-    marginLeft: 8,
-    marginVertical: 5,
+    width: '100%',
+    borderRadius: 10,
+    height: 100,
+    gap: 12,
     overflow: 'hidden',
   },
   pressed: {
     opacity: 0.50,
   },
-
   imagemMoldura: {
-    width: 101,
-    height: 101,
-    borderRadius: 10,
+    width: 100,
+    height: 100,
     overflow: 'hidden',
     flexShrink: 0,
     padding: 10,
@@ -65,14 +60,11 @@ const styles = StyleSheet.create({
     height: '100%',
     borderRadius: 8,
   },
-
   infoContainer: {
-    position: 'absolute',
-    left: 118,
-    top: 0,
-    width: 150,
+    width: "45%",
     flexDirection: 'column',
     gap: 2,
+    padding: 5
   },
   nome: {
     fontSize: 14,
@@ -85,20 +77,16 @@ const styles = StyleSheet.create({
     color: '#666',
     lineHeight: 16,
   },
-
   precoContainer: {
-    position: 'absolute',
     alignItems: 'flex-end',
-    justifyContent: 'center',
-    flexShrink: 0,
-    top: 5,
-    right: 5,
+    padding: 5,
+    flex: 1
   },
   preco: {
     fontSize: 14,
     fontFamily: 'Inter',
-    fontWeight: '400',
-    color: '#000000',
+    fontWeight: '500',
+    color: 'green',
     textAlign: 'right',
     lineHeight: 20,
   },

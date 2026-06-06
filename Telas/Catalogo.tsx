@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, View, FlatList, TextInput, Image } from 'react-native';
-import { Categorias, Produtos } from '../Dados.js';
+import { SafeAreaView, StyleSheet, Text, View, FlatList, TextInput, Image, Keyboard } from 'react-native';
+import { Categorias, Produtos, ProdutosQueNaoSaoFavoritos } from '../Dados.js';
 import { Categoria } from '../components/Categoria.js';
 import { Produto } from '../components/Produto.js';
 import { Dimensions } from 'react-native';
@@ -10,11 +10,24 @@ const screenWidth = Dimensions.get('window').width;
 
 export const Catalogo = ({ navigation }) => {
   const [search, setSearch] = useState('');
+  const [produtos, setProdutos] = useState(Produtos.filter(produto => produto.maisPedido == true));
 
-  const produtosFiltrados = Produtos.filter(produto =>
-    produto.nome.toLowerCase().includes(search.toLowerCase()) ||
-    produto.descricao.toLowerCase().includes(search.toLowerCase())
-  );
+  const [legenda, setLegenda] = useState('Mais pedidos');
+
+  const filtrar = () => {
+    let resultadosPesquisa = [];
+    if (search == '') {
+      setLegenda('Mais pedidos');
+      resultadosPesquisa = Produtos.filter(produto => produto.maisPedido == true)
+    } else {
+      resultadosPesquisa = Produtos.filter(produto =>
+      produto.nome.toLowerCase().includes(search.toLowerCase()) ||
+      produto.descricao.toLowerCase().includes(search.toLowerCase()))
+      setLegenda('Resultado da pesquisa');
+    }
+    setProdutos(resultadosPesquisa);
+    Keyboard.dismiss();
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -38,20 +51,21 @@ export const Catalogo = ({ navigation }) => {
       {/* Barra de pesquisa */}
       <View style={styles.searchContainer}>
         <View style={styles.searchWrapper}>
-          <Ionicons name="search" size={20} color="#999" />
           <TextInput
             returnKeyType="search"
             style={styles.searchInput}
             placeholder="Pesquisar"
             value={search}
             onChangeText={setSearch}
+            onSubmitEditing={filtrar}
           />
+          <Ionicons name="search" size={20} color="#999" onPress={filtrar}/>
         </View>
       </View>
 
       {/* Lista de produtos */}
       <FlatList
-        data={produtosFiltrados}
+        data={produtos}
         //renderItem={({ item }) => <Produto item={item} />}
         renderItem={({item}) =>(
           <Produto
@@ -59,12 +73,14 @@ export const Catalogo = ({ navigation }) => {
             navigation={navigation}
           />
         )}
+        ListHeaderComponent={<Text style={{fontWeight: 600, color: "grey", textAlign: "center"}}>{legenda}</Text>}
         keyExtractor={item => item.id.toString()}
         numColumns={2} 
         showsVerticalScrollIndicator={false}
         columnWrapperStyle={{ justifyContent: 'space-between' }} 
         contentContainerStyle={{ paddingHorizontal: 20, gap: 12, paddingBottom: 20}}
       />
+
     </SafeAreaView>
   );
 };
@@ -81,21 +97,27 @@ const styles = StyleSheet.create({
       paddingTop: 10,
   },
   containerTitle: {
-      alignItems: 'center',
-      gap: 5,
-      marginBottom: 4,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: 'center',
+    width: "100%",
+    gap: 5,
+    marginBottom: 4,
   },
   title: {
-      width: 108,
-      height: 52,
+      width: 100,
+      height: 50,
       resizeMode: 'contain',
   },
   subtitle: {
       fontSize: 18,
       textAlign: 'center',
+      fontWeight: 600,
+      color: "#ff9f7f"
   },
   horizontalListContent: {
       gap: 12,
+      marginHorizontal: 12
   },
   searchContainer: {
     flexDirection: 'row',

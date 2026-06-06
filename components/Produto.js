@@ -8,11 +8,7 @@ export const Produto = ({ item, navigation }) => {
   const categoriaInfo = Categorias.find(cat => cat.id === item.idCategoria);
 
   return (
-    <Pressable onPress={() => //alert(item.descricao === "" ? "Produto sem descrição" : item.descricao)}>
-      navigation.navigate('DetalhesProduto', {
-        produto:item
-      })
-    }>
+    <Pressable onPress={() =>  navigation.navigate('DetalhesProduto', { produto:item})}>
       <View style={styles.containerProduto}>
         <Text 
           style={[
@@ -23,7 +19,7 @@ export const Produto = ({ item, navigation }) => {
           {categoriaInfo ? categoriaInfo.etiqueta : "Geral"}
         </Text>
         <Image style={styles.tinyLogo} source={item.imagem} />
-        <Text style={styles.paragraph}>{item.nome}</Text>
+        <Text style={styles.paragraph} numberOfLines={1}>{item.nome}</Text>
         <Text style={[styles.paragraph, {color: "green"}]}>{item.preco ?? "Preço a definir"}</Text>
       </View>
     </Pressable>
